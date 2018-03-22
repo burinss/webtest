@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <link href="style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One&amp;subset=cyrillic" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Pacifico&amp;subset=cyrillic" rel="stylesheet">
+  <title>MYSQL TEST</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+  <div class="content">
+    <div class="main">
+      <a id="title">Burin shop</a>
+  </div>
+  <div class="last_products" >
+    <a href="view.php" class="section_text">Последние товары >></a>
+    <div class="list">
+      <div class="product">   <a class="description" href="view.php">Canon</a><br>
+    <a class="description" href="view.php">1000D</a><br>
+    <a class="description" href="view.php">400</a><br>
+    <a class="description" href="view.php"></a><br>
+</div><div class="product">   <a class="description" href="view.php">Zeikos</a><br>
+    <a class="description" href="view.php">a150</a><br>
+    <a class="description" href="view.php">50</a><br>
+    <a class="description" href="view.php"></a><br>
+</div>    </div>
+  </div>
+</div>
+<div class="header">
+  <div class="cart">
+    <a href="">
+      <img id="cart_icon" src="images/cart.png">
+    </a>
+  </div>
+  <div class="user">
+    <a href="">
+      <img id="user_icon" src="images/user.png">
+    </a>
+  </div>
+</div>
+<div class ="sidebar">
+  <a class = "name_preview">b</a>
+  <a class = "name_preview">u</a>
+  <a class = "name_preview">r</a>
+  <a class = "name_preview">i</a>
+  <a class = "name_preview">n</a>
+  <a class = "name_preview"> </a>
+  <a class = "name_preview">s</a>
+  <a class = "name_preview">h</a>
+  <a class = "name_preview">o</a>
+  <a class = "name_preview">p</a>
+  <hr class="line">
+  <div class = "menu">
+    <table class = "item_table">
+      <tr><th><div class= "item"><img class = "icon" src="/images/camera.png"><a class = "in_item_text">Камеры</a></div></th></tr>
+      <tr><th><div class= "item"><img class = "icon" src="/images/accessories.png"><a href="" class = "in_item_text">Аксесуары</a></div></th></tr>
+      <tr><th><div class= "item"><img class = "icon" src="/images/camera.png"><a href="" class = "in_item_text">Обьективы</a></div></th></tr>
+    </table>
+  </div>
+  </div>
+
+<script type='text/javascript'> 
+  go();
+  window.addEventListener('resize', go);
+  var text = document.querySelector('.in_item_text');
+  menu = document.querySelector('.sidebar');
+  var buffer = text.innerText;
+  // for(var i=0;i<text.lenght;i++)
+  // {
+  //  var buffer[] = text.item(i).innerText;
+  // }
+  var test=false;
+  function go(){
+    var width = document.documentElement.clientWidth;
+    if(width<720 && !test){
+      document.querySelector('.icon').style.position = "relative";
+      document.querySelector('.icon').style.display = "inline";
+      buf=text.innerText;
+      text.innerText="";
+      test=true;
+      menu.style.width="60px";
+    }
+    if (width>720 && test){
+      document.querySelector('.icon').style.position = "";
+      document.querySelector('.icon').style.display = "";
+      test=false;
+      text.innerText=buffer;
+      menu.style.width="";
+    }
+  }
+  $(window).scroll(function(e) {
+    var height = $(this).scrollTop();
+    var threshold=280;
+    $('.menu')[height >= threshold ? 'addClass' : 'removeClass']('active');
+    //$('.menu')[height >= threshold-50 ? 'addClass' : 'removeClass']('nonactive');
+    document.querySelector('.main').style.opacity=1-Math.tan(height/350);
+    $('.header')[height >= threshold ? 'addClass' : 'removeClass']('active');
+    $('.name_preview')[height >= threshold ? 'addClass' : 'removeClass']('active');
+    $('.line')[height >= threshold ? 'addClass' : 'removeClass']('active');
+    //document.querySelector('.main').style.top=height+'px';
+    //$('.menu')[height < 200 ? 'addClass' : 'removeClass']('nonactive');
+  }); 
+    //document.querySelector('.in_item_text').innerText = document.documentElement.clientWidth;
+  </script>
+</body>
+</html>
